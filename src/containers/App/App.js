@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import Logo from '../../components/Logo/Logo'
+import Navbar from '../../components/Navbar/Navbar'
 
 function App() {
   return (
     <div className="App">
-      <Logo />
-      {/* <Navbar />
-      <NavItem />
+      <Navbar />
+      {/* <NavItem />
       <DetectForm /> */}
     </div>
   );

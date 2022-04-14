@@ -6,6 +6,7 @@ const Logo = () => {
     return(
         <div className="logoDiv">
             <img src={logo} alt="Logo" />
+            <p>Face Detection</p>
         </div>
     );
 };

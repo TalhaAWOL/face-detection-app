@@ -1,0 +1,13 @@
+.navbar{
+    width: 100vw;
+    height: 5.3rem;
+    background-color: #424242;
+    display:flex;
+    align-items: center;
+    padding: 0 2em 0 2em;
+    box-sizing: border-box;
+}
+
+.flexEnd{
+    margin-left: auto;
+}
