@@ -9,4 +9,9 @@ img{
     height: auto;
     display:flex;
     align-items: center;
+    column-gap: 0.6rem;
+}
+
+.logoDiv:hover{
+    cursor: pointer;
 }

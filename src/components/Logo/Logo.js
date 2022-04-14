@@ -4,9 +4,9 @@ import logo from './Logo1.png'
 
 const Logo = () => {
     return(
-        <div className="logoDiv">
+        <div className="logoDiv shadow-4 ba b--black br4 grow ph3">
             <img src={logo} alt="Logo" />
-            <p>Face Detection</p>
+            <p className="f3">Face Detection</p>
         </div>
     );
 };

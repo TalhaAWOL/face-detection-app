@@ -6,7 +6,7 @@ const Navbar = () => {
     return(
         <div className="navbar">
             <Logo />
-            <a className="flexEnd" href="">Sign Out</a>
+            <a className="flexEnd f4 dim" href="">Sign Out</a>
         </div>
     );
 };
