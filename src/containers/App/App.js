@@ -7,7 +7,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <DetectForm />
+      <div className="content">
+        <p className="f2 white">You are rank #5</p>
+        <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
+        <DetectForm />
+      </div>
     </div>
   );
 }
