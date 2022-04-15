@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <DetectForm />
+      <div className="content">
+        <DetectForm />
+      </div>
     </div>
   );
 }

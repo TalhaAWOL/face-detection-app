@@ -1,7 +1,6 @@
 .detectForm{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    height:90vh;
-    align-items: center;
-  }
+  height:auto;
+  width:auto;
+  display:flex;
+  align-items: center;
+}

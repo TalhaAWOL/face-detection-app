@@ -3,9 +3,9 @@ import './DetectForm.css';
 
 const DetectForm = () => {
     return(
-        <div className="detectForm">
-            <input type="text"/>
-            <button className="dim green br2 ba bgBlack">Detect</button>
+        <div className="detectForm br2">
+            <input type="text" className="h2 w5 ba br3"/>
+            <button className="f3 dim black ba br4 ml2 pa1 ba">Detect</button>
         </div>
     );
 };

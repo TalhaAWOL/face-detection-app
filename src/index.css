@@ -5,14 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #303030;
+  background: rgb(120,225,104);
+  background: linear-gradient(rgba(120,225,104,1) 0%, rgba(50,88,44,1) 100%);
 }
 
 a, a:hover{
   text-decoration: none;
 }
 
-.green{
+.greenText{
   color:#78E168;
 }
 
@@ -22,6 +23,14 @@ a, a:hover{
 
 .bgBlack{
   background-color: #424242;
+}
+
+.content{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  height:90vh;
+  align-items: center;
 }
 
 code {
