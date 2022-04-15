@@ -12,6 +12,18 @@ a, a:hover{
   text-decoration: none;
 }
 
+.green{
+  color:#78E168;
+}
+
+.bgGreen{
+  background-color:#78E168;
+}
+
+.bgBlack{
+  background-color: #424242;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

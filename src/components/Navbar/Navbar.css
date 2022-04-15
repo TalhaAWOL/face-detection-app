@@ -1,7 +1,6 @@
 .navbar{
     width: 100vw;
-    height: 12vh;
-    background-color: #424242;
+    height: 10vh;
     display:flex;
     align-items: center;
     padding: 0 2em 0 2em;
@@ -10,5 +9,4 @@
 
 .flexEnd{
     margin-left: auto;
-    color: black;
 }

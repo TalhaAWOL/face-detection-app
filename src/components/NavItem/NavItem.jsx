@@ -3,8 +3,8 @@ import './NavItem.css';
 
 const NavItem = ({classes}) => {
     return(
-        <div className={`navItem ba br3 dim pa1 ${classes}`}>
-            <a className="f4" href="">Sign Out</a>
+        <div className={`navItem ${classes}`}>
+            <a className="f4 green" href="">Sign Out</a>
         </div>
     );
 };
