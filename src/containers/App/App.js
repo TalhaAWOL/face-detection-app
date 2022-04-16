@@ -6,6 +6,10 @@ import Particles from 'reactparticles.js'
 import config from './particlesjs-config.json'
 
 class App extends Component{
+  constructor(){
+    super();
+  }
+  
   render() {
     return (
       <div className="App">
