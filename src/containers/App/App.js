@@ -9,9 +9,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <Navbar />
-        <div className="content">
-          <Particles
+        <Particles
             id="config-1"
             config="./particlesjs-config.json"
             style={{
@@ -21,6 +19,8 @@ class App extends Component{
             }}
             className="particles-class-name zNeg"
           />
+        <Navbar />
+        <div className="content">
           <p className="f2 white">You are rank #5</p>
           <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
           <DetectForm />
