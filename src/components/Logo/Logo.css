@@ -1,9 +1,10 @@
 img{
-    width: 4rem;
+    width: 3rem;
     height: auto;
 }
 
 .logoDiv{
+    box-sizing: border-box;
     background-color: #424242;
     width: auto;
     height: auto;

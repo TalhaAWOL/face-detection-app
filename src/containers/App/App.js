@@ -18,13 +18,13 @@ class App extends Component{
             config="./particlesjs-config.json"
             style={{
               width: "100%",
-              height: "90vh",
+              height: "99vh",
               opacity: "1"
             }}
             className="particles-class-name zNeg"
           />
         <Navbar />
-        <div className="content">
+        <div className="content pv6">
           <p className="f2 white">You are rank #5</p>
           <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
           <DetectForm />
