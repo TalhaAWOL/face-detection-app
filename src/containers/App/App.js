@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import Clarifai from 'clarifai'
+// import Clarifai from 'clarifai'
 import Navbar from '../../components/Navbar/Navbar';
 import DetectForm from '../../components/DetectForm/DetectForm';
 import Particles from 'reactparticles.js';
 import config from './particlesjs-config.json';
 import FaceRecognition from '../../components/FaceRecognition/FaceRecognition';
 // import dotenv from 'dotenv'
-
-// const app = new Clarifai.App({
-//   apiKey: '44bf0c6e6c724a0fb2ad4fcaf5682174'
-//  });
 
 class App extends Component{
   constructor(){
