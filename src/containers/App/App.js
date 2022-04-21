@@ -28,9 +28,23 @@ class App extends Component{
 
   calculateFaceLocation = (boxParams) => {
     const image = document.getElementById("faceImage");
-    const width = image.width;
-    const height = image.height;
+    const width = Number(image.width);
+    const height = Number(image.height);
     console.log(width, height, boxParams)
+    // this.setState({
+    //   boundingBox: {
+    //     topRow: boundingBoxAPI.top_row,
+    //     rightCol: boundingBoxAPI.right_col,
+    //     botRow: boundingBoxAPI.bottom_row,
+    //     leftCol: boundingBoxAPI.left_col
+    //   }
+    // })
+    return{
+      leftCol: boxParams.left_col * width,
+      topRow: boxParams.top_row * height,
+      rightCol: width - (boxParams.right_col * width),
+      botRow: height - (boxParams.bottom_row * height)
+    }
   }
 
   onSubmit = () => {
@@ -50,7 +64,8 @@ class App extends Component{
         this.state.inputUrl)
       .then(response => {
         const boundingBoxAPI = response.outputs[0].data.regions[0].region_info.bounding_box
-        this.calculateFaceLocation(boundingBoxAPI)        
+        this.setState({boundingBox: this.calculateFaceLocation(boundingBoxAPI)})        
+        console.log(boundingBoxAPI)
       })
   }
 
