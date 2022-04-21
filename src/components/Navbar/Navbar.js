@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="navbar shadow-4 pv1 bgGreen">
             <Logo />
             {/* <a className="flexEnd f4 dim" href="">Sign Out</a> */}
-            <NavItem classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 grow"}/>
+            <NavItem classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 pointer grow"}/>
         </div>
     );
 };

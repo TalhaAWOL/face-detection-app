@@ -1,0 +1,20 @@
+.faceRecognition{
+    margin:auto;
+    width:100%;
+    height: auto;
+}
+
+#faceImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+.boundingBox{
+    box-shadow: 0 0 0 3px #149df2 inset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}

@@ -19,7 +19,7 @@ a, a:hover{
   display:flex;
   flex-direction: column;
   justify-content: center;
-  height:auto;
+  height:100%;
   align-items: center;
 }
 
