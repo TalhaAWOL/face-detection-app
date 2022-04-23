@@ -7,6 +7,9 @@ import Particles from 'reactparticles.js';
 import config from './particlesjs-config.json';
 import FaceRecognition from '../../components/FaceRecognition/FaceRecognition';
 import configAPI from '../../configAPI'
+import SignIn from '../../components/SignIn/SignIn'
+import SignUp from '../../components/SignUp/SignUp'
+import NavItem from '../../components/NavItem/NavItem'
 
 const app = new Clarifai.App({
   apiKey: configAPI.API_KEY //YOUR API KEY HERE
@@ -18,7 +21,8 @@ class App extends Component{
     this.state = {
       inputUrl: '',
       imageUrl: '',
-      boundingBox: {}
+      boundingBox: {},
+      isSignedIn: false
     }
   }
 
@@ -70,7 +74,6 @@ class App extends Component{
   }
 
   render() {
-    console.log(this.state.boundingBox)
     return (
       <div className="App">
         <Particles
@@ -83,12 +86,16 @@ class App extends Component{
             }}
             className="particles-class-name zNeg"
           />
-        <Navbar />
+        <Navbar> 
+          <NavItem classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 pointer grow"}/>
+        </Navbar>
         <div className="content pt6">
-          <p className="f2 white">You are rank #5</p>
+          {/* <p className="f2 white">You are rank #5</p>
           <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
           <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onSubmit}/>
-          <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/>
+          <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/> */}
+          {/* <SignIn /> */}
+          <SignUp />
         </div>
       </div>
     );
