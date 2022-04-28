@@ -92,7 +92,7 @@ class App extends Component{
           />
         <Navbar> 
           {
-            this.state.route !== 'signin' ?
+            this.state.route === 'home' ?
             <NavItem onRouteChange={this.onRouteChange} classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 pointer grow"}/>
             :
             null
@@ -101,17 +101,22 @@ class App extends Component{
         <div className="content pt6">
           
           {
-            this.state.route === 'signin' ?
-            <SignIn onRouteChange={this.onRouteChange}/> 
-            : 
+            this.state.route === 'home' ?
             <> 
               <p className="f2 white">You are rank #5</p>
               <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
               <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onSubmit}/>
               <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/> 
             </>
+            : 
+            (
+              this.state.route === 'signin' ? 
+              <SignIn onRouteChange={this.onRouteChange}/> 
+              :
+              <SignUp onRouteChange={this.onRouteChange}/>
+            )
           }
-          {/* <SignUp /> */}
+          
         </div>
       </div>
     );

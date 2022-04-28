@@ -8,7 +8,7 @@ const SignIn = ({onRouteChange}) => {
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0 black">
               <legend className="f4 fw6 ph0 mh0">Sign In</legend>
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" for="email-address">Email</label>
+                <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                 <input
                   className="pa2 mt2 br4 input-reset ba hover-bg-black hover-white w-100"
                   type="email"
@@ -17,7 +17,7 @@ const SignIn = ({onRouteChange}) => {
                 />
               </div>
               <div className="mv3">
-                <label className="db fw6 lh-copy f6" for="password">Password</label>
+                <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                 <input
                   className="b pa2 mt2 input-reset ba br4 hover-bg-black hover-white w-100"
                   type="password"
@@ -35,7 +35,7 @@ const SignIn = ({onRouteChange}) => {
               />
             </div>
             <div className="lh-copy mt3">
-              <a href="#0" className="f6 b link black dim db">Sign up</a>
+              <a onClick={() => onRouteChange('signup')} className="f6 b link black dim pointer">Sign up</a>
             </div>
           </form>
         </main>
