@@ -22,7 +22,7 @@ class App extends Component{
       inputUrl: '',
       imageUrl: '',
       boundingBox: {},
-      isSignedIn: false
+      route: 'signin'
     }
   }
 
@@ -73,6 +73,10 @@ class App extends Component{
       })
   }
 
+  onRouteChange = (route) => {
+    this.setState({route: route})
+  }
+
   render() {
     return (
       <div className="App">
@@ -87,15 +91,27 @@ class App extends Component{
             className="particles-class-name zNeg"
           />
         <Navbar> 
-          <NavItem classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 pointer grow"}/>
+          {
+            this.state.route !== 'signin' ?
+            <NavItem onRouteChange={this.onRouteChange} classes={"flexEnd bgBlack shadow-4 pv2 ph3 ba br3 pointer grow"}/>
+            :
+            null
+          }
         </Navbar>
         <div className="content pt6">
-          {/* <p className="f2 white">You are rank #5</p>
-          <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
-          <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onSubmit}/>
-          <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/> */}
-          {/* <SignIn /> */}
-          <SignUp />
+          
+          {
+            this.state.route === 'signin' ?
+            <SignIn onRouteChange={this.onRouteChange}/> 
+            : 
+            <> 
+              <p className="f2 white">You are rank #5</p>
+              <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
+              <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onSubmit}/>
+              <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/> 
+            </>
+          }
+          {/* <SignUp /> */}
         </div>
       </div>
     );
