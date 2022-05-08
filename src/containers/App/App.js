@@ -52,12 +52,6 @@ class App extends Component{
     }
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/')
-    .then(resp => resp.json())
-    .then(response => this.setState({users: response}))
-  }
-
   onSubmit = () => {
     this.setState({imageUrl: this.state.inputUrl})
     app.models

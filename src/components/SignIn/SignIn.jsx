@@ -1,8 +1,26 @@
 import React from 'react';
 import './SignIn.css';
 
-const SignIn = ({onRouteChange}) => {
-    return(
+class SignIn extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        signInEmail: '',
+        signInPassword: ''
+      }
+    }
+
+    onEmailChange = (event) => {
+      this.setState({signInEmail: event.target.value})
+    }
+
+    onPasswordChange = (event) => {
+      this.setState({signInPassword: event.target.value})
+    }
+
+    render() {
+      const {onRouteChange} = this.props;
+      return(
         <main className="pa5 center w-30 shadow-3 ba br3 fadedGreen">
           <form className="measure center">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0 black">
@@ -39,7 +57,9 @@ const SignIn = ({onRouteChange}) => {
             </div>
           </form>
         </main>
-    );
+     );
+    }
+    
 };
 
 export default SignIn;
