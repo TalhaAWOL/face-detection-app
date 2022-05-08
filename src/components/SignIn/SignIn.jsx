@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './SignIn.css';
 
-class SignIn extends React.Component {
+class SignIn extends Component {
     constructor(props){
       super(props);
       this.state = {
@@ -29,7 +29,8 @@ class SignIn extends React.Component {
       })
       .then(res => res.json())
       .then(resp => {
-        if(resp === 'success'){
+        if(resp.id){
+          this.props.loadUser(resp)
           this.props.onRouteChange('home')
         }else{
           console.log(resp)

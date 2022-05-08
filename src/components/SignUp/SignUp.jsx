@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './SignUp.css';
 
-class SignUp extends React.Component {
+class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -24,11 +24,29 @@ class SignUp extends React.Component {
     }
 
     onSignUpSubmit = (event) => {
-        console.log(this.state)
-        this.props.onRouteChange('signin')
+        fetch('http://localhost:3001/signup', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name: this.state.signUpName,
+                email: this.state.signUpEmail,
+                password: this.state.signUpPassword
+            })
+        })
+        .then(res => res.json())
+        .then(resp => {
+            if(resp !== 'error'){
+                this.props.loadUser(resp)
+                this.props.onRouteChange('signin')
+                console.log(resp)
+            }else{
+                console.log(resp)
+            }
+        })
     }
 
     render() {
+        const {onRouteChange} = this.props;
         return(
             <main className="pa5 center w-30 ba shadow-3 br3 fadedGreen">
                 <form className="measure center">
@@ -72,6 +90,9 @@ class SignUp extends React.Component {
                         value="Sign Up"
                         onClick={this.onSignUpSubmit}
                         />
+                    </div>
+                    <div className="lh-copy mt3">
+                        <a onClick={() => onRouteChange('signin')} className="f6 b link black dim pointer">Sign in</a>
                     </div>
                 </form>
             </main>

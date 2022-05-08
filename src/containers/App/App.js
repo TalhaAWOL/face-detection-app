@@ -23,8 +23,14 @@ class App extends Component{
       imageUrl: '',
       boundingBox: {},
       route: 'signin',
-      name: '',
-      entries: 0
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        password: '',
+        entries: 0,
+        joined: ''
+      }
     }
   }
 
@@ -53,7 +59,7 @@ class App extends Component{
     }
   }
 
-  onSubmit = () => {
+  onImageSubmit = () => {
     this.setState({imageUrl: this.state.inputUrl})
     app.models
       .predict(
@@ -69,6 +75,18 @@ class App extends Component{
         Clarifai.FACE_DETECT_MODEL,
         this.state.inputUrl)
       .then(response => {
+        // if (response){
+        //   fetch('http://localhost:3001/image', {
+        //     method: 'put',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify({
+        //       id: this.state.user.id
+        //     })
+        //   })
+        //   .then(entries => {
+        //     this.setState({user: {...this.state.user, entries: entries}})
+        //   })
+        // }
         const boundingBoxAPI = response.outputs[0].data.regions[0].region_info.bounding_box
         this.setState({boundingBox: this.calculateFaceLocation(boundingBoxAPI)})        
         console.log(boundingBoxAPI)
@@ -77,19 +95,22 @@ class App extends Component{
 
   onRouteChange = (route) => {
     this.setState({route: route})
-    switch (this.state.route) {
-      case 'signin':
-        
-        break;
-      case 'signup':
-      
-        break;
-      case 'home':
-    
-        break;
-      default:
-        console.log("something unexpected happened with the route")
-    }
+  }
+
+  loadUser = (data) => {
+    this.setState({user:{
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      entries: data.entries,
+      joined: data.joined
+    }})
+  }
+
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
   render() {
@@ -118,17 +139,17 @@ class App extends Component{
           {
             this.state.route === 'home' ?
             <> 
-              <p className="f2 white">You are rank #5</p>
+              <p className="f2 white">{this.capitalize(this.state.user.name)} You are rank {this.state.user.entries}</p>
               <p className="f4 white">The application will detect the faces on any image. Paste an image below to try.</p>
-              <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onSubmit}/>
+              <DetectForm inputChange={this.onInputChange} onButtonSubmit={this.onImageSubmit}/>
               <FaceRecognition imageUrl={this.state.imageUrl} boundingBoxParams={this.state.boundingBox}/> 
             </>
             : 
             (
               this.state.route === 'signin' ? 
-              <SignIn onRouteChange={this.onRouteChange}/> 
+              <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/> 
               :
-              <SignUp onRouteChange={this.onRouteChange}/>
+              <SignUp loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             )
           }
           
