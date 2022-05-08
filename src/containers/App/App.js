@@ -23,7 +23,8 @@ class App extends Component{
       imageUrl: '',
       boundingBox: {},
       route: 'signin',
-      users: {}
+      name: '',
+      entries: 0
     }
   }
 
@@ -50,12 +51,6 @@ class App extends Component{
       rightCol: width - (boxParams.right_col * width),
       botRow: height - (boxParams.bottom_row * height)
     }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/')
-    .then(resp => resp.json())
-    .then(response => this.setState({users: response}))
   }
 
   onSubmit = () => {
